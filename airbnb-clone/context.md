@@ -187,8 +187,7 @@ categorías y presentación de las tarjetas:
   de divisas; el modelo original sigue documentado en euros.
 - La rejilla tiene una columna a 375 px, dos desde 768 px (`md`) y tres desde
   1024 px (`lg`). Se usa Tailwind sin CSS en línea ni componentes preconstruidos.
-- Esta fase solo implementa `/`; los destinos de catálogo y detalle quedan
-  pendientes de sus fases correspondientes.
+- Las rutas `/`, `/catalog` y `/rooms/[id]` están implementadas.
 
 Esta sección precisa la interfaz de `/`. Prevalece sobre la descripción anterior de la cabecera: se incorporan logo, búsqueda y menú, sin añadir búsqueda funcional ni nuevas rutas.
 
@@ -512,7 +511,8 @@ Se mantiene la colección local compartida con Inicio y Catálogo.
 ### Implementación actual del detalle
 
 - La página de servidor `/rooms/[id]` recibe `params: Promise<{ id: string }>`
-  y obtiene el ID con `await`. Renderiza `RoomDetails` cliente con `key={id}`:
+  y obtiene el ID con `await` dentro de un componente envuelto en `Suspense`,
+  necesario con `cacheComponents`. Renderiza `RoomDetails` cliente con `key={id}`:
   cambiar de alojamiento reinicia carga, galería y huéspedes.
 - `RoomDetails` usa `useEffect` y un temporizador de 1000 ms para buscar en
   `data/listings`, limpiándolo al desmontarse. Distingue carga visible,
@@ -600,3 +600,29 @@ Estos contratos son especificaciones, no código.
         - Aviso de demostración y botón deshabilitado
 
 La galería y la reserva gestionan estados independientes. Los controles tienen etiquetas visibles, foco visible, área táctil mínima de 44 px y límites aplicados tanto en la interfaz como en las actualizaciones de estado. Los cambios de imagen y cantidad se anuncian de forma accesible. Todos los enlaces internos utilizan `Link` de `next/link`.
+
+## Verificación de producción
+
+- Se ejecutaron `npm run build` y `npm run lint`. El build detectó lectura de
+  `params` y `usePathname()` fuera de `Suspense` en `/rooms/[id]`. Se corrigió
+  la frontera de esa ruta sin desactivar `cacheComponents`; ambos comandos
+  finalizaron correctamente después de dos ajustes mínimos.
+- Se sirvió el build con `npm run start -- --port 3100` y se probó con
+  Playwright/Chromium a 375 y 1280 px. Se revisaron capturas de las tres vistas.
+- Se comprobaron carga visible, espera de Home, búsqueda por título/ubicación,
+  categoría activa y filtros combinados, ambos órdenes de precio, contador,
+  tarjeta idéntica en Home y catálogo, galería de dos fotos y huéspedes con
+  máximos de 2 y 1. La CTA permanece deshabilitada.
+- No hubo desbordamiento horizontal en las tres vistas. Se comprobó mapa
+  debajo de tarjetas en móvil y a la derecha en escritorio, así como reserva
+  debajo de servicios en móvil y lateral con posición sticky en escritorio.
+- En enlaces de menú, tarjetas y retorno al catálogo no hubo nuevas solicitudes
+  Network de tipo `document`, y se conservó la identidad de `window`.
+  Se observaron solicitudes RSC: 12 a 375 px y 14 a 1280 px.
+- `/rooms/inexistente` muestra «Alojamiento no encontrado» tras la carga:
+  es un estado cliente sobre HTTP 200, no una respuesta HTTP 404.
+  `/ruta-inexistente` sí devuelve HTTP 404 y la página 404 de Next.js.
+- No se verificaron otros navegadores, dispositivos físicos, el ancho exacto
+  de 768 px, todos los IDs, una galería de una sola foto ni los máximos 4 y 6
+  en esta revisión de navegador. Tampoco se realizó una auditoría completa
+  de accesibilidad ni una comparación pixel-perfect con Airbnb.

@@ -1,17 +1,23 @@
 import { Navbar } from "@/components/Navbar";
 import { RoomDetails } from "@/components/RoomDetails";
+import { Suspense } from "react";
 
 interface RoomPageProps {
   params: Promise<{ id: string }>;
 }
 
-const RoomPage = async ({ params }: RoomPageProps) => {
+const ResolvedRoom = async ({ params }: RoomPageProps) => {
   const { id } = await params;
+  return <RoomDetails key={id} id={id} />;
+};
 
+const RoomPage = ({ params }: RoomPageProps) => {
   return (
     <>
-      <Navbar />
-      <RoomDetails key={id} id={id} />
+      <Suspense fallback={<p role="status" className="p-4">Cargando alojamiento…</p>}>
+        <Navbar />
+        <ResolvedRoom params={params} />
+      </Suspense>
     </>
   );
 };
