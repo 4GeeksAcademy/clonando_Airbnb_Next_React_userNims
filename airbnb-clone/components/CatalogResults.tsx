@@ -27,7 +27,7 @@ export const CatalogResults = ({ listings }: CatalogResultsProps) => {
             ? <ListingGrid listings={sortedListings} />
             : <p>No hay alojamientos disponibles.</p>}
         </div>
-        <MapPlaceholder />
+        <MapPlaceholder listings={listings} />
       </div>
     </section>
   );
