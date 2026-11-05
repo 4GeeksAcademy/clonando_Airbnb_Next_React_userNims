@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <g id="w">
+      <rect width="70" height="56" fill="#bfdce8" stroke="#8c7664" stroke-width="5"/>
+      <path d="M35 0V56" stroke="#8c7664" stroke-width="4"/>
+    </g>
+    <g id="b">
+      <rect x="-8" y="56" width="86" height="8" fill="#8c7664"/>
+      <path d="M-4 64V84M14 64V84M32 64V84M50 64V84M68 64V84" stroke="#8c7664" stroke-width="3"/>
+      <rect x="-8" y="84" width="86" height="6" fill="#8c7664"/>
+    </g>
+  </defs>
+  <rect width="800" height="600" fill="#e8eef2"/>
+  <circle cx="680" cy="90" r="40" fill="#f6d79a"/>
+  <g fill="#ffffff">
+    <ellipse cx="130" cy="80" rx="54" ry="16"/>
+    <ellipse cx="160" cy="68" rx="32" ry="16"/>
+  </g>
+  <rect x="40" y="220" width="170" height="240" fill="#e6d6bf"/>
+  <rect x="590" y="180" width="170" height="280" fill="#d7b99b"/>
+  <g fill="#f5e9d8">
+    <rect x="66" y="250" width="40" height="40"/><rect x="144" y="250" width="40" height="40"/>
+    <rect x="66" y="320" width="40" height="40"/><rect x="144" y="320" width="40" height="40"/>
+    <rect x="616" y="210" width="40" height="40"/><rect x="694" y="210" width="40" height="40"/>
+    <rect x="616" y="280" width="40" height="40"/><rect x="694" y="280" width="40" height="40"/>
+  </g>
+  <rect y="440" width="800" height="160" fill="#d4e4d1"/>
+  <rect x="230" y="80" width="340" height="380" fill="#f5e9d8"/>
+  <rect x="220" y="66" width="360" height="18" fill="#8c7664"/>
+  <rect x="300" y="44" width="60" height="22" fill="#cbbba6"/>
+  <path d="M230 170H570M230 260H570M230 350H570" stroke="#e6d6bf" stroke-width="6"/>
+  <use xlink:href="#w" href="#w" x="260" y="100"/>
+  <use xlink:href="#w" href="#w" x="365" y="100"/>
+  <use xlink:href="#w" href="#w" x="470" y="100"/>
+  <use xlink:href="#w" href="#w" x="260" y="190"/>
+  <use xlink:href="#w" href="#w" x="365" y="190"/>
+  <use xlink:href="#w" href="#w" x="470" y="190"/>
+  <use xlink:href="#w" href="#w" x="260" y="280"/>
+  <use xlink:href="#w" href="#w" x="365" y="280"/>
+  <use xlink:href="#w" href="#w" x="470" y="280"/>
+  <use xlink:href="#b" href="#b" x="260" y="100"/>
+  <use xlink:href="#b" href="#b" x="470" y="190"/>
+  <use xlink:href="#b" href="#b" x="260" y="280"/>
+  <g fill="#899c80">
+    <circle cx="276" cy="154" r="9"/><circle cx="296" cy="150" r="10"/>
+    <circle cx="486" cy="244" r="9"/><circle cx="506" cy="240" r="10"/>
+  </g>
+  <rect x="352" y="360" width="96" height="10" fill="#b66d5c"/>
+  <rect x="364" y="370" width="72" height="90" fill="#8c7664"/>
+  <rect x="372" y="378" width="56" height="74" fill="#bfdce8"/>
+  <path d="M400 378V452" stroke="#8c7664" stroke-width="4"/>
+  <g fill="#bfdce8" stroke="#8c7664" stroke-width="5">
+    <rect x="260" y="380" width="70" height="50"/>
+    <rect x="470" y="380" width="70" height="50"/>
+  </g>
+  <rect x="346" y="460" width="108" height="10" fill="#cbbba6"/>
+  <path d="M370 470 350 600H450L430 470Z" fill="#e6d6bf"/>
+  <rect x="152" y="390" width="14" height="80" fill="#8c7664"/>
+  <circle cx="159" cy="370" r="40" fill="#899c80"/>
+  <circle cx="138" cy="392" r="24" fill="#a8b6a0"/>
+  <rect x="634" y="390" width="14" height="80" fill="#8c7664"/>
+  <circle cx="641" cy="370" r="40" fill="#899c80"/>
+  <circle cx="662" cy="392" r="24" fill="#a8b6a0"/>
+  <g fill="#899c80">
+    <circle cx="246" cy="458" r="16"/><circle cx="270" cy="462" r="14"/>
+    <circle cx="554" cy="458" r="16"/><circle cx="530" cy="462" r="14"/>
+  </g>
+  <rect x="270" y="528" width="260" height="40" rx="20" fill="#ffffff" opacity="0.85"/>
+  <text x="400" y="556" text-anchor="middle" font-family="sans-serif" font-size="24" fill="#334155">Apartamento de muestra</text>
+</svg>
